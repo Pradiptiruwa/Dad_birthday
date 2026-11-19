@@ -1,0 +1,891 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+    --gold: #e8c77d;
+    --gold-light: #fff0c2;
+    --dark: #090b12;
+    --cream: #f7edda;
+    --muted: #bdb5a5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* BACKGROUND */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.star-particle {
+    position: absolute;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .15;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+.glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: .12;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-one {
+    background: #d6a64d;
+    top: 10%;
+    left: -180px;
+}
+
+.glow-two {
+    background: #9a6b30;
+    bottom: 10%;
+    right: -180px;
+}
+
+/* OPENING */
+
+.opening {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 30px 20px;
+    background:
+        radial-gradient(ellipse at center,
+        #303044 0%,
+        #151824 48%,
+        #090b12 100%);
+}
+
+.opening-content {
+    max-width: 700px;
+    animation: openingAppear 1.5s ease both;
+}
+
+@keyframes openingAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.crown {
+    color: var(--gold);
+    font-size: 55px;
+    margin-bottom: 25px;
+    animation: crownGlow 3s infinite alternate;
+}
+
+@keyframes crownGlow {
+    from {
+        text-shadow: 0 0 5px #e8c77d;
+    }
+
+    to {
+        text-shadow: 0 0 35px #e8c77d;
+    }
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 5px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.opening h1,
+.birthday-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(38px, 8vw, 80px);
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+.opening h1 span,
+.birthday-title span {
+    display: block;
+    color: var(--gold);
+    font-size: 1.1em;
+}
+
+.opening-text {
+    max-width: 480px;
+    margin: 25px auto 35px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.small-note {
+    margin-top: 35px;
+    color: #82775f;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+/* BUTTON */
+
+.gold-button {
+    display: inline-block;
+    background: linear-gradient(
+        120deg,
+        #fff0bd,
+        #d9ad60,
+        #f7d991
+    );
+    color: #17130b;
+    padding: 17px 30px;
+    border: 1px solid #f9e3a8;
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .4s;
+    box-shadow: 0 0 25px #d6ad5833;
+}
+
+.gold-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 35px #e8c77d88;
+}
+
+/* MAIN CONTENT */
+
+#mainContent {
+    position: relative;
+    z-index: 1;
+}
+
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+    position: relative;
+    background:
+        radial-gradient(ellipse at center,
+        #22283a,
+        #090b12 75%);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-description {
+    max-width: 600px;
+    margin: 25px auto 35px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 2;
+}
+
+.gold-line {
+    height: 1px;
+    width: 100px;
+    margin: 30px auto;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+    animation: float 2s infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* SECTION HEADINGS */
+
+section:not(.opening):not(.hero) {
+    padding: 110px 7%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 span {
+    color: var(--gold);
+}
+
+.section-heading > p:last-child {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* LETTER */
+
+.letter-section {
+    background: linear-gradient(
+        180deg,
+        #10131d,
+        #171b27,
+        #10131d
+    );
+}
+
+.letter-card {
+    max-width: 750px;
+    margin: auto;
+    padding: clamp(25px, 6vw, 65px);
+    text-align: center;
+    border: 1px solid #b18c4e77;
+    background: linear-gradient(
+        145deg,
+        #ffffff0b,
+        #ffffff02
+    );
+    box-shadow: 0 20px 80px #0006;
+    position: relative;
+}
+
+.letter-icon {
+    font-size: 42px;
+    color: var(--gold);
+    margin-bottom: 25px;
+}
+
+.letter-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.letter-card p {
+    white-space: pre-line;
+    font-size: 17px;
+    color: #ddd5c6;
+    line-height: 2.1;
+}
+
+.letter-signature {
+    margin-top: 35px;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 19px;
+}
+
+/* CAKE */
+
+.cake-section {
+    text-align: center;
+    background:
+        radial-gradient(circle,
+        #272337,
+        #0b0d15 70%);
+}
+
+.cake-area {
+    padding: 40px 20px;
+}
+
+.cake-emoji {
+    font-size: clamp(100px, 18vw, 160px);
+    margin-bottom: 20px;
+    animation: cakeFloat 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 25px #e8c77d44);
+}
+
+@keyframes cakeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+#cakeMessage {
+    color: var(--muted);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* GALLERY */
+
+.memories-section {
+    background: #111520;
+}
+
+.gallery {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.memory-card {
+    background: #1a1e2b;
+    border: 1px solid #c7a15d55;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.memory-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 45px #0008;
+    border-color: var(--gold);
+}
+
+.memory-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: .6s;
+}
+
+.memory-card:hover img {
+    transform: scale(1.07);
+}
+
+.memory-caption {
+    padding: 25px 15px;
+    text-align: center;
+    position: relative;
+    background: #1a1e2b;
+}
+
+.memory-caption h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.memory-caption p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* FINAL */
+
+.final-section {
+    text-align: center;
+    background:
+        radial-gradient(ellipse at center,
+        #29243a,
+        #0b0d15 70%);
+}
+
+.final-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.final-star {
+    color: var(--gold);
+    font-size: 55px;
+    animation: crownGlow 2s infinite alternate;
+}
+
+.final-content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(35px, 7vw, 65px);
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 25px 0;
+}
+
+.final-content h2 span {
+    display: block;
+    color: var(--gold);
+}
+
+.final-content p {
+    max-width: 550px;
+    margin: 25px auto;
+    line-height: 2;
+    color: var(--muted);
+}
+
+.final-content h3 {
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    margin: 40px 0;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    line-height: 2.5;
+    color: #8e826d;
+    border-top: 1px solid #b18c4e33;
+}
+
+/* SCROLL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CELEBRATION OVERLAY */
+
+.celebration-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #05060beF;
+    backdrop-filter: blur(12px);
+}
+
+.celebration-box {
+    max-width: 480px;
+    width: 100%;
+    padding: 45px 25px;
+    text-align: center;
+    border: 1px solid var(--gold);
+    background: #171b27;
+    animation: openingAppear .6s ease;
+}
+
+.big-star {
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.celebration-box h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.celebration-box p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+    section:not(.opening):not(.hero) {
+        padding: 80px 6%;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+
+    .memory-card img {
+        height: 300px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .letter-card p {
+        font-size: 15px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media(prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   PREMIUM MOBILE RESPONSIVE DESIGN
+===================================== */
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .gallery {
+        gap: 15px;
+    }
+
+    .memory-card img {
+        height: 250px;
+    }
+
+    section:not(.opening):not(.hero) {
+        padding: 85px 5%;
+    }
+}
+
+
+/* Mobile phones */
+@media screen and (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Opening screen */
+
+    .opening {
+        min-height: 100svh;
+        padding: 25px 20px;
+    }
+
+    .opening-content {
+        width: 100%;
+    }
+
+    .crown {
+        font-size: 43px;
+        margin-bottom: 20px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+        line-height: 1.8;
+    }
+
+    .opening h1 {
+        font-size: clamp(35px, 10vw, 52px);
+        line-height: 1.3;
+    }
+
+    .opening-text {
+        font-size: 14px;
+        line-height: 1.8;
+        padding: 0 8px;
+    }
+
+    /* Buttons */
+
+    .gold-button {
+        width: 100%;
+        max-width: 320px;
+        padding: 17px 12px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    /* Hero section */
+
+    .hero {
+        min-height: 90svh;
+        padding: 60px 22px;
+    }
+
+    .birthday-title {
+        font-size: clamp(35px, 10vw, 54px);
+        line-height: 1.4;
+    }
+
+    .hero-description {
+        font-size: 15px;
+        line-height: 1.9;
+        padding: 0 5px;
+    }
+
+    .scroll-indicator {
+        font-size: 9px;
+        bottom: 20px;
+    }
+
+    /* Section spacing */
+
+    section:not(.opening):not(.hero) {
+        padding: 70px 20px;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(26px, 8vw, 35px);
+        line-height: 1.5;
+    }
+
+    /* Birthday letter */
+
+    .letter-card {
+        padding: 28px 20px;
+        border-radius: 8px;
+    }
+
+    .letter-card h3 {
+        font-size: 23px;
+    }
+
+    .letter-card p {
+        font-size: 14px;
+        line-height: 2;
+        text-align: left;
+    }
+
+    .letter-signature {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    /* Cake */
+
+    .cake-emoji {
+        font-size: 110px;
+    }
+
+    .cake-area {
+        padding: 20px 5px;
+    }
+
+    /* Photo gallery */
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        width: 100%;
+        max-width: 420px;
+        margin: auto;
+    }
+
+    .memory-card {
+        border-radius: 9px;
+    }
+
+    .memory-card img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .memory-caption {
+        padding: 22px 12px;
+    }
+
+    .memory-caption h3 {
+        font-size: 17px;
+    }
+
+    .memory-caption p {
+        font-size: 12px;
+    }
+
+    /* Final message */
+
+    .final-content h2 {
+        font-size: clamp(30px, 9vw, 42px);
+        line-height: 1.5;
+    }
+
+    .final-content p {
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    .final-content h3 {
+        font-size: 23px;
+        line-height: 1.6;
+    }
+
+    /* Celebration popup */
+
+    .celebration-box {
+        padding: 35px 20px;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .celebration-box h2 {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .celebration-box p {
+        font-size: 14px;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 28px 15px;
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+}
+
+
+/* Very small phones */
+@media screen and (max-width: 360px) {
+
+    .opening h1 {
+        font-size: 33px;
+    }
+
+    .birthday-title {
+        font-size: 33px;
+    }
+
+    .letter-card {
+        padding: 22px 15px;
+    }
+
+    .memory-card img {
+        height: 240px;
+    }
+
+    .gold-button {
+        font-size: 9px;
+    }
+}
+
+
+/* Touchscreen devices */
+@media (hover: none) {
+
+    .memory-card:hover {
+        transform: none;
+    }
+
+    .memory-card:hover img {
+        transform: none;
+    }
+
+    .gold-button:hover {
+        transform: none;
+    }
+
+}
+
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .star-particle,
+    .cake-emoji,
+    .crown,
+    .final-star,
+    .scroll-indicator {
+        animation: none !important;
+    }
+
+}
